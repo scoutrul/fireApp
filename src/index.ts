@@ -1,9 +1,10 @@
 import * as admin from 'firebase-admin';
 
-const serviceAccount = require('../service-account.json');
+const serviceAccount = require('../serviceAccountKey.json');
 
 admin.initializeApp({
-  credential: admin.credential.cert(serviceAccount)
+  credential: admin.credential.cert(serviceAccount),
+  databaseURL: "https://migg-63592.firebaseio.com"
 });
 
 import { ApolloServer, ApolloError, ValidationError, gql } from 'apollo-server';
@@ -102,7 +103,7 @@ const server = new ApolloServer({
   typeDefs,
   resolvers,
   engine: {
-    apiKey: "<APOLLO ENGINE API KEY HERE>"
+    apiKey: "service:My-Graph-062kyn:UpXe5DIhMSkhJ16CS9POBg"
   },
   introspection: true
 });
